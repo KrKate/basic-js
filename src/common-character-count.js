@@ -14,14 +14,19 @@ const { NotImplementedError } = require('../extensions/index.js');
 function getCommonCharacterCount(s1, s2) {
   // throw new NotImplementedError('Not implemented');
   // remove line with error and write your code here
-  let count = 0;
-  arr1 = s1.split('').sort();
-  arr2 = s2.split('').sort();
-  console.log(arr1)
-  console.log(arr2)
-
+  let arr1 = s1.split('').sort().join('');
+  let arr2 = s2.split('').sort().join('');
+  let counter = 0;
+  for (let i=0; i<arr1.length; i++) {
+    if(arr2.includes(arr1[i])) {
+      counter++;
+      arr2 = arr2.replace(arr1[i], '')
+    }
+  }
+  return counter;
 }
-getCommonCharacterCount("aabcc", "adcaa")
+
+console.log(getCommonCharacterCount("aabcg  nc", "a dcaavgnv v"))
 module.exports = {
   getCommonCharacterCount
 };
