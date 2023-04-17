@@ -30,25 +30,6 @@ class VigenereCipheringMachine {
     let kf = Math.ceil(string.length / key.length);
     key = key.repeat(kf);
 
-    let codeA = 'A'.charCodeAt(0);
-    let abcCount = 26;
-
-    let result = [];
-
-    for (let i=0; i<string.length; i++) {
-      if (string[i] === ' ') {
-        result.push(string[i]);
-      } else {
-        let letterIdx = string.charCodeAt(i) - codeA;
-        let shift = key.charCodeAt(i) - codeA;
-
-        result.push(
-          String.fromCharCode( codeA + (letterIdx + shift) % abcCount)
-        )
-      }
-    }
-    console.log(result)
-    return result.join('')
 
   }
   decrypt(string, key) {
