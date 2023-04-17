@@ -52,9 +52,6 @@ function repeater(str, options) {
   let additionSeparator = options.additionSeparator || '|';
 
   let result = '';
-  if (str === true) {
-    result = 'truefalse!!!false??? truefalse!!!false??? truefalse!!!false'
-  }
 
   for (let i=0; i<repeatTimes; i++) {
     result += str;
