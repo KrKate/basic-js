@@ -16,19 +16,23 @@ class DepthCalculator {
   calculateDepth(arr) {
     // throw new NotImplementedError('Not implemented');
     // remove line with error and write your code here
-    let depthArray = [];
+    let depth = 1;
+    if (!Array.isArray(arr)) {
+      return 0;
+    }
     for (let i=0; i<arr.length; i++) {
-      let arrayElement = arr[i];
-      if(Array.isArray(arrayElement)) {
-        for (let j=0; j<arrayElement.length; j++) {
-          depthArray.push(arrayElement[j])    
-      }
-      return depthArray;
-      }
+      if(Array.isArray(arr[i])) {
+//если текущий элемент является массивом, то вызываю метод
+//для этого массива с добавлением 1 к результату
+        let current = this.calculateDepth(arr[i]) + 1;
+        if (current>depth) {
+          depth = current;
+        }
       }
     }
+    return depth;
   }
-
+}
 
 
 
